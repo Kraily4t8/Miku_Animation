@@ -5,8 +5,8 @@ class Miku {
         this.idle = new Animator(this.spritesheet, 2, 1, 56, 64, 10, 0.2, 3, false, true);
         this.walkRight = new Animator(this.spritesheet, 2, 65, 75, 67, 8, 0.2, 2, false, true);
 
-        this.jump = new Animator(this.spritesheet, 5, 134, 75, 100, 9, 0.28, 2.2, false, true);
-        // this.fall = new Animator(this.spritesheet, 313, 134, 75, 100, 4, 0.5, this.frameDuration, false, true);
+        this.jump = new Animator(this.spritesheet, 5, 134, 75, 100, 9, 0.28, 2.25, false, true);
+
         this.tick = 0;
         this.xPos = 400;
         this.yPos = 250;
