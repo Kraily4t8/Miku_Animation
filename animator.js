@@ -4,22 +4,22 @@ class Animator {
 
         this.elaspedTime = 0;
         this.totalTime = this.frameCount * this.frameDuration;
-
     };
 
     drawFrame(tick, ctx, x, y, scale) {
         this.elaspedTime += tick;
-        
         if(this.isDone()) {
             if(this.loop) {
                 this.elaspedTime -= this.totalTime;
             } else {
-                console.log("no longer drawing, please find a way to exit :c")
+                console.log("no longer drawing, please find a way to exit :c");
                 return;
             }
         }
 
         let frame = this.currentFrame();
+        // console.log("frame: " + frame);
+
         if(this.reverse) frame = this.frameCount - frame - 1;
         // console.log("x:" + this.xStart + frame * (this.width + this.framePadding)
         //     + " y:" + this.yStart
