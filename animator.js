@@ -6,7 +6,7 @@ class Animator {
         this.totalTime = this.frameCount * this.frameDuration;
     };
 
-    drawFrame(tick, ctx, x, y, scale) {
+    drawFrame(tick, ctx, x, y, scale, flip) {
         this.elaspedTime += tick;
         if(this.isDone()) {
             if(this.loop) {
@@ -25,13 +25,26 @@ class Animator {
         //     + " y:" + this.yStart
         //     + " w:" + this.width * scale
         //     + " h:" + this.height * scale);
-        ctx.drawImage(this.spritesheet, 
+        if(flip) {
+            ctx.save();
+            ctx.scale(-1,1);
+            ctx.drawImage(this.spritesheet, 
             this.xStart + frame * (this.width + this.framePadding), this.yStart, //source from sheet 
             this.width, this.height,
-            x,y,
+            -(x  + this.width * scale),y,
             this.width * scale, 
             this.height * scale);
+            ctx.restore();
+        } else {
+            ctx.drawImage(this.spritesheet, 
+                this.xStart + frame * (this.width + this.framePadding), this.yStart, //source from sheet 
+                this.width, this.height,
+                x,y,
+                this.width * scale, 
+                this.height * scale);
+        }
     }
+
 
     currentFrame() {
         return Math.floor(this.elaspedTime / this.frameDuration);

@@ -19,14 +19,21 @@ class Miku {
     }
 
     draw(ctx) {
-        this.idle.drawFrame(this.game.clockTick, ctx, 0, 0, 3);
-        this.walkRight.drawFrame(this.game.clockTick, ctx, 180, 0, 3);
-        this.jumping.drawFrame(this.game.clockTick, ctx, 0, 200, 3);
-        this.jump.drawFrame(this.game.clockTick, ctx, 210, 200, 3);
-        this.falling.drawFrame(this.game.clockTick, ctx, 400, 200, 3);
-        this.landing.drawFrame(this.game.clockTick, ctx, 600, 200, 3);
-        this.attack.drawFrame(this.game.clockTick, ctx, 400, 0, 3);
-        this.defeat.drawFrame(this.game.clockTick, ctx, 0, 500, 3);
-        this.dance.drawFrame(this.game.clockTick, ctx, 250, 500, 3);
+        this.animationTest(ctx, 2.2);
+        // let scale = 3;
+        // this.idle.drawFrame(this.game.clockTick, ctx, 0, 0, scale, false);
+        // this.idle.drawFrame(this.game.clockTick, ctx, 175, 0, scale, true);
+    }
+    
+    animationTest(ctx,scale, flip) {
+        this.idle.drawFrame(this.game.clockTick, ctx, 0, 0, scale,flip);
+        this.walkRight.drawFrame(this.game.clockTick, ctx, 180, 0, scale, flip);
+        this.jumping.drawFrame(this.game.clockTick, ctx, 0, 200, scale, flip);
+        this.jump.drawFrame(this.game.clockTick, ctx, 210, 200, scale, flip);
+        this.falling.drawFrame(this.game.clockTick, ctx, 400, 200, scale, flip);
+        this.landing.drawFrame(this.game.clockTick, ctx, 600, 200, scale, flip);
+        this.attack.drawFrame(this.game.clockTick, ctx, 400, 0, scale, flip);
+        this.defeat.drawFrame(this.game.clockTick, ctx, 0, 500, scale, flip);
+        this.dance.drawFrame(this.game.clockTick, ctx, 250, 500, scale, flip);
     }
 }
